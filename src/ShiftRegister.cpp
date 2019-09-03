@@ -8,7 +8,6 @@
 #include "Arduino.h"
 #include "ShiftRegister.h"
 
-
 // ShiftRegister constructor.
 ShiftRegister::ShiftRegister(int numberOfShiftRegisters, int serialDataPin, int clockPin, int latchPin)
 {
@@ -37,14 +36,12 @@ ShiftRegister::ShiftRegister(int numberOfShiftRegisters, int serialDataPin, int 
     updateRegisters();
 }
 
-
 // ShiftRegister destructor.
 // The memory allocated in the constructor is also released.
 ShiftRegister::~ShiftRegister()
 {
     free(_digitalValues);
 }
-
 
 // Set all pins of the shift registers at once.
 // digitalValues is a uint8_t array where the length is equal to the number of shift registers.
@@ -54,14 +51,12 @@ void ShiftRegister::setAll(const uint8_t* digitalValues)
     updateRegisters();
 }
 
-
 // Retrieve all states of the shift registers' output pins.
 // The returned array's length is equal to the numbe of shift registers.
 uint8_t* ShiftRegister::getAll()
 {
     return _digitalValues; 
 }
-
 
 // Set a specific pin to either HIGH (1) or LOW (0).
 // The pin parameter is a positive, zero-based integer, indicating which pin to set.
@@ -78,7 +73,6 @@ uint8_t ShiftRegister::get(int pin)
 	return (_digitalValues[pin / 8] >> (pin % 8)) & 1;
 }
 
-
 // Equivalent to set(int pin, uint8_t value), except the physical shift register is not updated.
 // Should be used in combination with updateRegisters().
 void ShiftRegister::setNoUpdate(int pin, uint8_t value)
@@ -93,14 +87,12 @@ void ShiftRegister::setNoUpdate(int pin, uint8_t value)
     }
 }
 
-
 // Sets all pins of all shift registers to LOW (0).
 void ShiftRegister::setAllLow()
 {
 	setAllLowNoUpdate();
 	updateRegisters();
 }
-
 
 // Sets all pins of all shift registers to LOW (0) without updating.  Good
 // for reseting to a known state before making certain pins HIGH (1).
@@ -112,14 +104,12 @@ void ShiftRegister::setAllLowNoUpdate()
 	}
 }
 
-
 // Sets all pins of all shift registers to HIGH (1).
 void ShiftRegister::setAllHigh()
 {
 	setAllHighNoUpdate();
 	updateRegisters();
 }
-
 
 // Sets all pins of all shift registers to HIGH (1) without updating.  Good
 // for reseting to a known state before making certain pins LOW (0).
@@ -131,7 +121,6 @@ void ShiftRegister::setAllHighNoUpdate()
     }
     updateRegisters();
 }
-
 
 // Updates the shift register pins to the stored output values.
 // This is the function that actually writes data into the shift registers of the 74HC595

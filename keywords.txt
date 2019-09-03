@@ -1,0 +1,10 @@
+ShiftRegister		keyword1
+setAll			keyword2
+getAll			keyword2
+set			keyword2
+get			keyword2
+setNoUpdate		keyword2
+setAllLow		keyword2
+setAllHigh		keyword2
+setAllHighNoUpdate	keyword2
+updateRegisters		keyword2

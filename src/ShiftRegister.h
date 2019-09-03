@@ -21,7 +21,7 @@ public:
     ShiftRegister(int numberOfShiftRegisters, int serialDataPin, int clockPin, int latchPin);
     ~ShiftRegister();
 
-    void setAll(const uint8_t * digitalValues);
+    void setAll(const uint8_t* digitalValues);
     uint8_t* getAll(); 
 
     void set(int pin, uint8_t value);
