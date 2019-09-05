@@ -44,6 +44,13 @@ ShiftRegister lights(8, dataPin, clockPin, latchPin);
 
 void setup()
 {
+  for(int i = 0; i < 8; i++)
+  {
+    lights.set(i, HIGH);
+    delay(250);       // pause to slow down the sequence
+  }
+
+  delay(5000);
 }
 
 void loop()
@@ -74,7 +81,7 @@ void oneOnAtATime()
 
   // step through the LEDs, from 0 to 7
 
-  for(int i = 3; i < 8; i++)
+  for(int i = 0; i < 8; i++)
   {
     lights.set(i, HIGH);
     delay(delayTime);       // pause to slow down the sequence

@@ -1,4 +1,3 @@
-#include <BatteryMeterShiftRegister.h>
 
 void setup()
 {
