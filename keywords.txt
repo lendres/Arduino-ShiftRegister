@@ -1,4 +1,11 @@
-ShiftRegister		keyword1
+################################
+# Class
+################################
+ShiftRegister		KEYWORD1
+
+################################
+# Functions
+################################
 setAll			keyword2
 getAll			keyword2
 set			keyword2
